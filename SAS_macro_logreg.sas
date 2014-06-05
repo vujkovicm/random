@@ -54,37 +54,3 @@ LIBNAME CCG 'F:\CCG1952\11_All_SNPs';
 %survival 
 
 
-/* 4 SNPS */
-/*
-rs10925235
-rs2842947
-rs4712327
-rs4819128
-*/
-
-/*
-proc freq data = ccg.char_geno;
-tables rs4819128_T * all_replase;
-run;
-
-proc logistic data=ccg.char_geno;
-class rs4819128_T(ref = '0')/ param=ref ;
-model all_replase = rs4819128_T;
-ODS SELECT ODDSRATIOS;
-ODS TRACE ON;
-ODS SHOW;
-run;
-
-proc logistic data=ccg.char_geno;
-class rs4819128_T(ref = '0')/ param=ref ;
-model all_replase = rs4819128_T sex;
-ODS SELECT ODDSRATIOS;
-ODS TRACE ON;
-ODS SHOW;
-run;
-
-proc logistic data=ccg.char_geno;
-class rs4819128_T(ref = '0')/ param=ref ;
-model all_replase = rs4819128_T age_cat sex ethnic_origin immunoph;
-run;
-*/
