@@ -4,31 +4,25 @@
 #		      #
  ###################
 
-# invoke the R script file with makeCircos function by 
-source("c:\\stat\\myScripts\\makeCircosFormat.txt", echo=T)
+# invoke R function
+source("c:\\stat\\myScripts\\makeCircosFormat.R", echo=T)
 
-# directory name, with double slashes in windows environment
+# set working directory
 setwd("C:\\stat\\myData\\") 
 
 # data file
-# data file must include variable names  
-# data file must include patient identifiers in the first row
-# the output will be stored in the same directory as the input file
+# include variable names and patient identifiers in the first row
 infile <- "myInputFile.txt"
+
+# output is stored in wd
 outfile <- "myCircosFile.txt"
 
 # call the function
 makeCircos (infile, outfile)
 
 
-#
-#
-#
-# This is the function
-# Don't change!
-#
-#
-#
+# 
+# table rearrangement
 #
 
 makeCircos <- function(infile, outfile)
