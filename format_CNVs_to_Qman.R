@@ -10,7 +10,7 @@ setwd("T:\\my_directory")
 # 1	723918
 # 1	729632
 
-# cnvPartition output
+# cnvPartition output [clean of LOH and telomeric CNVs]
 #
 # regno	chr	start		end	      	size	value
 # 1	5	49447784	49548900	101116	1
