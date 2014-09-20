@@ -41,34 +41,33 @@ for (i in 1:22)
 ###############
 
 # count by looping through cnv-file 
-# for (i in 1:dim(cnv)[1])
 
-for (i in 1:1)
+for (i in 1:dim(cnv)[1])
 {
 	# first select the correct chromosome for internal count revision
-	chr <- get(paste("chr", cnv$chr[i], sep="")) # varying df name [1/2]
+	df <- get(paste("chr", cnv$chr[i], sep="")) # varying df name [1/2]
 	
 	# loop through the entire chromosome
-	for (j in 1:dim(chr)[1])
+	for (j in 1:dim(df)[1])
 	{
-		if (chr$Position[j] >= cnv$start[i])
+		if (df[j] >= cnv$start[i])
 		{
-			if (chr$Position[j] <= cnv$end[i])
+			if (df[j] <= cnv$end[i])
 			{
 				# add 1 to Loss
 				if(cnv$value[i] < 2 )
 				{
-					chr$Loss[j] <- chr$Loss[j] + 1 ;
+					df[j] <- df[j] + 1 ;
 				}
 				# add 1 to Gain
 				if(cnv$value[i] > 2 )
 				{
-					chr$Gain[j] <- chr$Gain[j] + 1 ;
+					df[j] <- df[j] + 1 ;
 				}	
 			}
 		}
 	# save new internal count to external data frame
-	assign(paste("chr", cnv$chr[i], sep=""), chr) # varying df name [1/2]
+	assign(paste("chr", cnv$chr[i], sep=""), df) # varying df name [1/2]
 	}
 }
 
