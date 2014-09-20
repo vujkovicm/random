@@ -1,4 +1,4 @@
-setwd("T:\\ymy_directory")
+setwd("T:\\my_directory")
 
 # Chromosome seperated SNP reference file format
 #
@@ -11,13 +11,14 @@ setwd("T:\\ymy_directory")
 # 1	729632
 
 # cnvPartition output
-# regno chr	start	    end	      size	  value
-# 1	    5	  49447784	49548900	101116	1
-# 1	    12	37999925	38410357	410432	1
-# 2	    17	34443830	34815551	371721	3
-# 3	    8	  24972808	24990418	17610	  0
-# 3	    16	34508448	34756258	247810	3
-# 4	    8	  39237843	39385979	148136	1
+#
+# regno	chr	start		end	      	size	value
+# 1	5	49447784	49548900	101116	1
+# 1	12	37999925	38410357	410432	1
+# 2	17	34443830	34815551	371721	3
+# 3	8	24972808	24990418	17610	0
+# 3	16	34508448	34756258	247810	3
+# 4	8	39237843	39385979	148136	1
 
 # CNV output file (remove waves & telo/centromeres)
 cnv  <- read.table("my_cnvPartition_output.txt", header = T, sep = "\t", stringsAsFactors = F)
@@ -25,9 +26,6 @@ cnv  <- read.table("my_cnvPartition_output.txt", header = T, sep = "\t", strings
 ######################################################## 
 # IMPORT chromosome-seperated SNP reference files      #
 ######################################################## 
-
-# chromosome-seperated SNP reference files
-# init count
 
 for (i in 1:22)
 {
@@ -58,11 +56,13 @@ for (i in 1:1)
 		{
 			if (chr$Position[j] <= cnv$end[i])
 			{
+				# add 1 to Loss
 				if(cnv$value[i] < 2 )
 				{
 					print (paste(j, ": ", chr$Position[j], sep = "")) ;
 					chr$Loss[j] <- chr$Loss[j] + 1 ;
 				}
+				# add 1 to Gain
 				if(cnv$value[i] > 2 )
 				{
 					chr$Gain[j] <- chr$Gain[j] + 1 ;
