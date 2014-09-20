@@ -58,7 +58,6 @@ for (i in 1:1)
 				# add 1 to Loss
 				if(cnv$value[i] < 2 )
 				{
-					print (paste(j, ": ", chr$Position[j], sep = "")) ;
 					chr$Loss[j] <- chr$Loss[j] + 1 ;
 				}
 				# add 1 to Gain
