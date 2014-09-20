@@ -40,11 +40,9 @@ for (i in 1:22)
 # TRANFORM  chromosome-seperated SNP reference files  #
 ######################################################## 
 
-# count by looping through cnv-file 
-
 for (i in 1:dim(cnv)[1])
 {
-	# first select the correct chromosome for internal count revision
+	# first select the correct chromosome for internal gain/loss addition
 	df <- get(paste("chr", cnv$chr[i], sep="")) # varying df name [1/2]
 	
 	# loop through the entire chromosome
