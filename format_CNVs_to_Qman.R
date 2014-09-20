@@ -36,9 +36,9 @@ for (i in 1:22)
 	assign(name, df) ;			# varying df name [2/2] 
 }
 
-###############
-# TRANFORM    #
-###############
+######################################################## 
+# TRANFORM  chromosome-seperated SNP reference files  #
+######################################################## 
 
 # count by looping through cnv-file 
 
@@ -71,9 +71,9 @@ for (i in 1:dim(cnv)[1])
 	}
 }
 
-##############
-# EXPORT     #
-##############
+######################################################## 
+# EXPORT  chromosome-seperated SNP reference files     #
+######################################################## 
 
 for (i in 1:22)
 {
