@@ -30,10 +30,10 @@ cnv  <- read.table("my_cnvPartition_output.txt", header = T, sep = "\t", strings
 for (i in 1:22)
 {
 	df <- read.table(paste("chr", i, "_template.txt", sep=""), header = T, sep = "\t", stringsAsFactors = F) ;
-	df$Loss <- 0 ; # init Loss
-	df$Gain <- 0 ; # init Gain
-	name <- paste("chr", i, sep="") ;
-	assign(name, df) ;
+	df$Loss <- 0 ; 				# init Loss
+	df$Gain <- 0 ; 				# init Gain
+	name <- paste("chr", i, sep="") ; 	# varying df name [1/2]
+	assign(name, df) ;			# varying df name [2/2] 
 }
 
 ###############
@@ -46,8 +46,7 @@ for (i in 1:22)
 for (i in 1:1)
 {
 	# first select the correct chromosome for internal count revision
-	chr <- get(paste("chr", cnv$chr[i], sep=""))
-	print(head(chr)) ;
+	chr <- get(paste("chr", cnv$chr[i], sep="")) # varying df name [1/2]
 	
 	# loop through the entire chromosome
 	for (j in 1:dim(chr)[1])
@@ -70,7 +69,7 @@ for (i in 1:1)
 			}
 		}
 	# save new internal count to external data frame
-	assign(paste("chr", cnv$chr[i], sep=""), chr)
+	assign(paste("chr", cnv$chr[i], sep=""), chr) # varying df name [1/2]
 	}
 }
 
@@ -80,7 +79,7 @@ for (i in 1:1)
 
 for (i in 1:22)
 {
-	df <- get(paste("chr", i, sep=""))
- 	file <- paste("chr", i, "_count.txt", sep="") ;
+	df <- get(paste("chr", i, sep=""))			# varying df name [1/1]
+ 	file <- paste("chr", i, "_count.txt", sep="") ;		# varying filename [1/1]
 	write.table(df, file, sep = "\t", row.names = F, col.names = T, quote = F) ;
 }
