@@ -11,7 +11,7 @@
 
 # usage: multiplot (p1, p2, p3, p4, cols = 2)
 
-multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+multiplot <- function(..., plotlist = NULL, file, cols = 1, layout = NULL) {
   require(grid)
 
   # Make a list from the ... arguments and plotlist
@@ -24,11 +24,11 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
     # Make the panel
     # ncol: Number of columns of plots
     # nrow: Number of rows needed, calculated from # of cols
-    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
-                    ncol = cols, nrow = ceiling(numPlots/cols))
+    layout <- matrix(seq(1, cols * ceiling(numPlots / cols)),
+                    ncol = cols, nrow = ceiling(numPlots / cols))
   }
 
- if (numPlots==1) {
+ if (numPlots == 1) {
     print(plots[[1]])
 
   } else {
