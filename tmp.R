@@ -1,3 +1,5 @@
+# Manhattan plot for copy number data
+
 setwd("T:\\Aplenc_New\\Projects\\CopyNumbers_Germline\\Data\\SNP_info")
 source("T:\\Aplenc\\SampleSets\\AAML_0531\\GWAS\\sgpt\\qqman.r")
 
