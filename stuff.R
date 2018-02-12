@@ -7,5 +7,13 @@
 # systematically rename column names
 # remove everything after _ in column name
 names(df) = gsub(pattern = "_*", replacement = "", x = names(df))
-final$CHRCBP = gsub(pattern = "(-).*", replacement = "", x = final$Location)
 
+# remove everyting after dash (-) 
+# e.g. 1:1520-1520 > 1:1520
+df$CHRCBP = gsub(pattern = "(-).*", replacement = "", x = df$Location)
+
+# keep position (e.g. 1520)
+df$BP = gsub(pattern = "*.(-)", replacement = "", x = df$CHRCBP)
+
+# keep chr (e.g. 1) 
+df$CHR = gsub(pattern = "(:).*", replacement = "", x = df$CHRCBP)
