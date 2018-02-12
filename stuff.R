@@ -7,4 +7,5 @@
 # systematically rename column names
 # remove everything after _ in column name
 names(df) = gsub(pattern = "_*", replacement = "", x = names(df))
+final$CHRCBP = gsub(pattern = "(-).*", replacement = "", x = final$Location)
 
