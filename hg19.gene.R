@@ -11,3 +11,12 @@ locations$skat <- paste0(locations$SYMBOL, " ", locations$chr, ":", locations$st
 
 write.table(locations$skat, "hg19.ucsc.gene.set", row.names = F, col.names = F, quote = F, sep = "")
 
+# rvtest --inVcf ../data/hg19/ceu_hg19.vcf.gz \
+# --kernel skat \
+# --setFile ../hg19.ucsc.gene.set \
+# --pheno ../data/phe.sample \
+# --covar ../data/phe.sample \
+# --pheno-name phe \
+# --covar-name sex,age,bmi,P1 \
+# --out ../output/phe
+# ### MAF < 0.1
