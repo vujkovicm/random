@@ -20,3 +20,10 @@ df$CHR = gsub(pattern = "(:).*", replacement = "", x = df$CHRCBP)
 
 # take multiple rows and merge them into one variable (long into single)
 df.new = aggregate( . ~ grouping_variable, df, function(x) toString(unique(x)))
+
+# adjust for genomic inflation
+# remove outliers first (p < 0.01)
+df$X    = qchisq(1 - in.data$P, 1)
+LAMBDA  = median(in.data$stats) / 0.4549
+df$Xadj = df$X / LAMBDA
+df$Padj = calculate p from new ChiSquare
