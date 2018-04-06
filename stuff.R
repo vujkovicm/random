@@ -1,3 +1,7 @@
+# stating the obvious
+# bgzip -c file.vcf > file.vcf.gz
+# tabix -p vcf file.vcf.gz                   
+
 # don't restrict R rounding of p-value to 2.2E-16 (default: 53 binary digits accuracy)
 .Machine$double.eps # 2.220446e-16
 .Machine$double.xmin # 2.225074e-308
@@ -27,3 +31,4 @@ df$X    = qchisq(1 - in.data$P, 1)
 LAMBDA  = median(in.data$stats) / 0.4549
 df$Xadj = df$X / LAMBDA
 df$Padj = calculate p from new ChiSquare
+
