@@ -22,8 +22,13 @@ df$BP = gsub(pattern = "*.(-)", replacement = "", x = df$CHRCBP)
 # keep chr (e.g. 1) 
 df$CHR = gsub(pattern = "(:).*", replacement = "", x = df$CHRCBP)
 
+# alternatively
+tmp = as.data.frame(do.call(rbind, strsplit(df$variant, '\\:')))
+colnames(tmp) = c("chr", "pos", "ref", "alt")
+df = cbind(df, tmp)
+
 # take multiple rows and merge them into one variable (long into single)
-df.new = aggregate( . ~ grouping_variable, df, function(x) toString(unique(x)))
+df.new = aggregate( . ~ grouping_variable, df, function(x) toString(unique(x)))                               
 
 # adjust for genomic inflation
 # remove outliers first (p < 0.01)
