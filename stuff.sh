@@ -5,7 +5,7 @@ tabix -p vcf file.vcf.gz
 # extract patients from vcf
 bcftools view -Ov --samples-file ids.keeps file.vcf.gz -o new.file.vcf
 
-# single variant association
+# single variant association [binary coded as 1/2]
 rvtest --inVcf file.vcf.gz \
   --single score,wald \
   --pheno file.sample \
