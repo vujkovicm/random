@@ -26,3 +26,6 @@ grep -w -f lookup.snps filename
 
 # inverse grep on multiple patterns
 grep -v -E 'AGE|SEX|PC' filename
+
+# replace header
+sed -i '1s/.*/NEW HEADER COLS/g' file.txt
