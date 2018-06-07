@@ -29,3 +29,6 @@ grep -v -E 'AGE|SEX|PC' filename
 
 # replace header
 sed -i '1s/.*/NEW HEADER COLS/g' file.txt
+
+# extract from gzipped text-file, disregarding header info (48 lines)
+awk 'NR>48 {if($16 < 0.0000002) print $0}' <(gzip -dc file.gz)
