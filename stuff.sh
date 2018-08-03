@@ -32,3 +32,9 @@ sed -i '1s/.*/NEW HEADER COLS/g' file.txt
 
 # extract from gzipped text-file, disregarding header info (48 lines)
 awk 'NR>48 {if($16 < 0.0000002) print $0}' <(gzip -dc file.gz)
+
+# iterations to variables
+chr=$1
+i=$2
+from=$((3000000*$i+1))
+to=$((3000000*($i+1)))
