@@ -38,3 +38,10 @@ chr=$1
 i=$2
 from=$((3000000*$i+1))
 to=$((3000000*($i+1)))
+
+# get left unique (ref check)
+grep -Fxv -f mvp.x.snps g1k.snps > mvp.x.uniq
+
+
+
+
