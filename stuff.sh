@@ -43,8 +43,22 @@ to=$((3000000*($i+1)))
 grep -Fxv -f mvp.x.snps g1k.snps > mvp.x.uniq
 
 # impute2 to plink
-plink2 --gen filename.gz --make-bed --out filename --allow-extra-chr --sample pheno.sample
+plink2 --gen filename.gz --make-pgen --sort-vars --out filename --allow-extra-chr --sample pheno.sample
+sed -i "s/---/19/g" filename.pvar
+echo -e "#CHROM\tPOS\tID\tREF\tALT" > filename.new
+awk '{if(NR>1) print $1"\t"$2"\tchr"$1":"$2"\t"$4"\t"$5}' filename.pvar >> filename.new
+mv filename.pvar filename.tmp
+mv filename.new filename.pvar
+plink2 --pfile filename --make-bed --out filename
+plink2 --bfile filename --extract ../extract.snp --recode A --out subset
 
+# plink2 --gen chr6/chr_6_30e6_35e6.gz   --make-pgen --out chr6/filename  --allow-extra-chr --sample ../../../out/GWAS2/MI/GWAS2.MI.sample --sort-vars
+# plink2 --gen chr19/chr_19_15e6_20e6.gz --make-pgen --out chr19/filename --allow-extra-chr --sample ../../../out/GWAS2/MI/GWAS2.MI.sample --sort-vars
+# plink2 --gen chr7/chr_7_135e6_140e6.gz --make-pgen --out chr7/filename  --allow-extra-chr --sample ../../../out/GWAS2/MI/GWAS2.MI.sample --sort-vars
+# plink2 --gen chr1/chr_1_195e6_200e6.gz --make-pgen --out chr1/filename  --allow-extra-chr --sample ../../../out/GWAS2/MI/GWAS2.MI.sample --sort-vars
+# plink2 --gen chr3/chr_3_85e6_90e6.gz   --make-pgen --out chr3/filename  --allow-extra-chr --sample ../../../out/GWAS2/MI/GWAS2.MI.sample --sort-vars
+# plink2 --gen chr5/chr_5_0e6_5e6.gz     --make-pgen --out chr5/filename  --allow-extra-chr --sample ../../../out/GWAS2/MI/GWAS2.MI.sample --sort-vars
+# plink2 --gen chr4/chr_4_55e6_60e6.gz   --make-pgen --out chr4/filename  --allow-extra-chr --sample ../../../out/GWAS2/MI/GWAS2.MI.sample --sort-vars 
 
-
-
+# second round
+# plink2 --gen chr19/chr_19_50e6_55e6.gz --make-pgen --out chr19/filename --allow-extra-chr --sample ../../../out/GWAS2/MI/GWAS2.MI.sample --sort-vars 
