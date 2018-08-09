@@ -42,6 +42,9 @@ to=$((3000000*($i+1)))
 # get left unique (ref check)
 grep -Fxv -f mvp.x.snps g1k.snps > mvp.x.uniq
 
+# impute2 to plink
+plink2 --gen filename.gz --make-bed --out filename --allow-extra-chr --sample pheno.sample
+
 
 
 
