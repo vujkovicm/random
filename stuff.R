@@ -35,5 +35,9 @@ df.new = aggregate( . ~ grouping_variable, df, function(x) toString(unique(x)))
 df$X    = qchisq(1 - in.data$P, 1)
 LAMBDA  = median(in.data$stats) / 0.4549
 df$Xadj = df$X / LAMBDA
-df$Padj = calculate p from new ChiSquare
+#df$Padj = calculate p from new ChiSquare
 
+# find best-matched control for a case based on age, gender and PC's (1x)
+library('e1071')
+myMatch   = matchControls(DISEASE ~ AGE + SEX + PCA1 + PCA2 + PCA3, caselabel = 1, contlabel = 0, data = df)
+dfMatched = rbind(df[myMatch$cases, ], df[myMatch$controls, ])
