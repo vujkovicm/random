@@ -39,5 +39,13 @@ df$Xadj = df$X / LAMBDA
 
 # find best-matched control for a case based on age, gender and PC's (1x)
 library('e1071')
-myMatch   = matchControls(DISEASE ~ AGE + SEX + PCA1 + PCA2 + PCA3, caselabel = 1, contlabel = 0, data = df)
+myMatch   = matchControls(DISEASE ~ AGE + SEX + PCA1 + PCA2 + PCA3, caselabel = 1, contlabel = 0, data = df, replace = F)
 dfMatched = rbind(df[myMatch$cases, ], df[myMatch$controls, ])
+                   
+# support vector machines and such (in train and test dataset)
+library('caret')
+fitControl = trainControl(method = "repeatedcv", number = 5, repeats = 5)
+svm.fit    = train(OUTCOME ~ PCA1 + PCA2 + PCA3, method = 'svmRadial', trControl = fitControl, data = df.train)
+svm.pred   = predict(svm.fit, df.test)
+df.test    = cbind(df.test, svm.pred)
+
