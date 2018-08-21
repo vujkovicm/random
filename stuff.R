@@ -53,3 +53,5 @@ svm.fit    = train(OUTCOME ~ PCA1 + PCA2 + PCA3, method = 'svmRadial', trControl
 svm.pred   = predict(svm.fit, df.test)
 df.test    = cbind(df.test, svm.pred)
 
+# collapse multiple rows into one field
+paste(unique(unlist(df$variable_name)), collapse=';' )
