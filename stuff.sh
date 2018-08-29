@@ -5,6 +5,15 @@ tabix -p vcf file.vcf.gz
 # extract patients from vcf
 bcftools view -Ov --samples-file ids.keeps file.vcf.gz -o new.file.vcf
 
+# extract variant from vcf
+bcftools query -R gene.bed \
+ -f '%CHROM\t%POS\t%REF\t%ALT\t%INFO/nhomref\t%INFO/nhet\t%INFO/nhomvar\n' \
+ -S samples.keep \
+ -o output.txt \
+  file.vcf.gz
+  
+ bcftools query -f'%CHROM\t%POS\t%REF\t%ALT\n' vcffile.vcf.gz > output.bed
+
 # single variant association [binary coded as 1/2]
 rvtest --inVcf file.vcf.gz \
   --single score,wald \
