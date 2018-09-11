@@ -71,3 +71,7 @@ plink2 --bfile filename --extract ../extract.snp --recode A --out subset
 
 # second round
 # plink2 --gen chr19/chr_19_50e6_55e6.gz --make-pgen --out chr19/filename --allow-extra-chr --sample ../../../out/GWAS2/MI/GWAS2.MI.sample --sort-vars 
+
+# EXPORT VCF AS HARDCALLS in PLINK2
+plink2 --vcf filename.vcf.gz dosage=DS --hard-call-threshold 0.499999 --extract common.snps --export vcf vcf-dosage=DS --out filename.common
+
