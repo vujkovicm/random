@@ -39,6 +39,12 @@ grep -v -E 'AGE|SEX|PC' filename
 # replace header
 sed -i '1s/.*/NEW HEADER COLS/g' file.txt
 
+# replace new line with comma
+paste -sd, file.in > file.out
+
+# push environemental variales into awk
+awk -v "gene=$1" '{if($8 == gene) print $0}' file.in > file.out
+
 # extract from gzipped text-file, disregarding header info (48 lines)
 awk 'NR>48 {if($16 < 0.0000002) print $0}' <(gzip -dc file.gz)
 
