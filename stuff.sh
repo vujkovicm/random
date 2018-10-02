@@ -2,6 +2,14 @@
 bgzip -c file.vcf > file.vcf.gz
 tabix -p vcf file.vcf.gz   
 
+# extract SNPs from imputed file (impute2.gz)
+plink --gen filename.gz  \
+ --extract select.snp \
+  --make-bed \
+  --out filename \
+  --sample filename.sample \
+  --allow-extra-chr
+
 # extract patients from vcf
 bcftools view -Ov --samples-file ids.keeps file.vcf.gz -o new.file.vcf
 
