@@ -35,7 +35,12 @@ rvtest --inVcf file.vcf.gz \
 # print duplicate lines
 awk 'seen[$0]++' filename 
 
-# copy files from aws s3 bucket
+# concatenate fields from 2 files
+# paste 6 and 7 column from file 2 seperated by comma with entire of file1
+awk 'FNR==NR {a[FNR""]= $6 FS $7; next}{print $0, a[FNR""]}' file2 file1 > file.out
+
+# copy files f
+rom aws s3 bucket
 aws s3 cp s3://bucket/dir/ . --recursive
 
 #split chrX:123 into two columns and convert alleles to uppercase
