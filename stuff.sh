@@ -35,6 +35,9 @@ rvtest --inVcf file.vcf.gz \
 # print duplicate lines
 awk 'seen[$0]++' filename 
 
+# replace first occurence in file
+sed -i '1,/pattern/{s/pattern/newpattern/;}' filename.txt
+ 
 # concatenate fields from 2 files
 # paste 6 and 7 column from file 2 seperated by comma with entire of file1
 awk 'FNR==NR {a[FNR""]= $6 FS $7; next}{print $0, a[FNR""]}' file2 file1 > file.out
