@@ -32,6 +32,10 @@ rvtest --inVcf file.vcf.gz \
   --minMAF 0.0001 \
   --out file
 
+# split filename into base and extension
+base="${file%.*}"
+ext="${filename##*.}"
+
 # print duplicate lines
 awk 'seen[$0]++' filename 
 
