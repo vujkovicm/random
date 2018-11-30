@@ -63,7 +63,7 @@ grep -v -E 'AGE|SEX|PC' filename
 sed -i '1s/.*/NEW HEADER COLS/g' file.txt
 
 # insert new header
-sed -i '1 i/HEADER COLS TXT' file.txt
+sed -i '1 i\HEADER COLS TXT' file.txt
 
 # replace new line with comma
 paste -sd, file.in > file.out
