@@ -55,3 +55,11 @@ df.test    = cbind(df.test, svm.pred)
 
 # collapse multiple rows into one field
 paste(unique(unlist(df$variable_name)), collapse = ';')
+
+# time
+t1 = as.POSIXlt(strptime("06.21.2018 9:00", "%m.%d.%Y %H:%M"))
+t2 = as.POSIXlt(strptime("06.21.2018 10:15", "%m.%d.%Y %H:%M"))
+t1-t2
+difftime(t1, t2, units = 'mins')
+as.numeric(difftime(t1, t2, units = 'mins'))
+
