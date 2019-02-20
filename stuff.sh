@@ -56,6 +56,9 @@ awk '{split($1, a, ":"); print substr(a[1], 4), a[2], toupper($2), toupper($3)}'
 # grep exact match from list in file
 grep -w -f lookup.snps filename
 
+# find duplicate value in row 4, print line
+awk '{++a[$4]; b[$4]=b[$4]? b[$4] ORS $0:$0} END {for(i in a) {if(a[i]>1) {print b[i]}}}' filename
+
 # inverse grep on multiple patterns
 grep -v -E 'AGE|SEX|PC' filename
 
