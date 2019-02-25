@@ -46,6 +46,9 @@ sed -i '1,/pattern/{s/pattern/newpattern/;}' filename.txt
 # paste 6 and 7 column from file 2 seperated by comma with entire of file1
 awk 'FNR==NR {a[FNR""]= $6 FS $7; next}{print $0, a[FNR""]}' file2 file1 > file.out
 
+# merge two files based on key identifierd (untion)
+awk 'FNR==NR{a[$1]=$2 FS $3; next}{ print $0, a[$1]}' file2 file1 > file.out
+
 # copy files f
 rom aws s3 bucket
 aws s3 cp s3://bucket/dir/ . --recursive
