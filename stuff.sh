@@ -49,6 +49,9 @@ awk 'FNR==NR {a[FNR""]= $6 FS $7; next}{print $0, a[FNR""]}' file2 file1 > file.
 # merge two files based on key identifierd (untion)
 awk 'FNR==NR{a[$1]=$2 FS $3; next}{ print $0, a[$1]}' file2 file1 > file.out
 
+# replace missing with value in specific column usign awk
+awk '{ sub("NA", -9, $5); print }' file.in > file.out
+
 # copy files f
 rom aws s3 bucket
 aws s3 cp s3://bucket/dir/ . --recursive
