@@ -1,3 +1,5 @@
+args = commandArgs(trailingOnly = TRUE)
+
 # stating the obvious
 # bgzip -c file.vcf > file.vcf.gz
 # tabix -p vcf file.vcf.gz                   
