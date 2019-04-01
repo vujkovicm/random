@@ -62,4 +62,21 @@ t2 = as.POSIXlt(strptime("06.21.2018 10:15", "%m.%d.%Y %H:%M"))
 t1-t2
 difftime(t1, t2, units = 'mins')
 as.numeric(difftime(t1, t2, units = 'mins'))
-
+                   
+# split column by delimiter (unequal lenghts)
+require(data.table)
+dt <- data.table(df)
+#            ids gene
+# 1: 266;372;572  ABBA
+# 2: 908;202;896  BETA
+#
+# expand the patients
+dt[ , list( patient = unlist(strsplit(ids, ";" ))) , by = gene]
+#    gene patient
+# 1: ABBA     266
+# 2: ABBA     372
+# 3: ABBA     572
+# 4: BETA     908
+# 5: BETA     202
+# collapse the genes 
+paste(unlist(df[which(df$patient %in% random.list), "gene"]), collapse = ";")
