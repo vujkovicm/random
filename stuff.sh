@@ -1,3 +1,7 @@
+# selectively kill jobs
+bkill `bjobs -p -o jobid | grep -v ^JOBID | tr '\n' ' '`
+bjobs -w | grep 'PEND' | awk '{print $1}' | xargs bkill
+
 # stating the obvious
 bgzip -c file.vcf > file.vcf.gz
 tabix -p vcf file.vcf.gz   
