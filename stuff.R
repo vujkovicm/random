@@ -10,6 +10,9 @@ args = commandArgs(trailingOnly = TRUE)
 # soluation
 .Machine$double.eps = .Machine$double.xmin
 
+#  pvalue to standard error
+df$SE = abs(df$BETA) / abs(qnorm(1 - df$P/2))
+
 # formatting of regression model output (OR, CI, P)
 glm.fit <- glm(OUT ~ SNP + AGE + SEX + PCA1 + PCA2 + PCA3, data = df, family = "binomial")
 round(cbind(OR = exp(coef(glm.fit)), exp(confint(glm.fit)), P = summary(glm.fit)$coef[, "Pr(>|z|)"]), digits = 3)
