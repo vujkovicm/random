@@ -2,6 +2,11 @@
 bkill `bjobs -p -o jobid | grep -v ^JOBID | tr '\n' ' '`
 bjobs -w | grep 'PEND' | awk '{print $1}' | xargs bkill
 
+# run shell script without killing it due to inactive time (genisis stuff)
+# keep running on the background
+# save output every 60 seconds to nohup.out
+nohup watch -n60 'bash script.sh' &
+
 # stating the obvious
 bgzip -c file.vcf > file.vcf.gz
 tabix -p vcf file.vcf.gz   
