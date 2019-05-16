@@ -6,6 +6,7 @@ bjobs -w | grep 'PEND' | awk '{print $1}' | xargs bkill
 # keep running on the background
 # save output every 60 seconds to nohup.out
 nohup watch -n60 'bash script.sh' &
+bash script &
 
 # stating the obvious
 bgzip -c file.vcf > file.vcf.gz
