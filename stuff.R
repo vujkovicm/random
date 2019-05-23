@@ -4,11 +4,7 @@ args = commandArgs(trailingOnly = TRUE)
 ordinize = function(x, n.cat) {
   cut(x, breaks = c(quantile(x, probs = seq(0, 1, 1/n.cat))), labels = seq(1:n.cat))
 }
-
-# stating the obvious
-# bgzip -c file.vcf > file.vcf.gz
-# tabix -p vcf file.vcf.gz                   
-
+    
 # don't restrict R rounding of p-value to 2.2E-16 (default: 53 binary digits accuracy)
 .Machine$double.eps # 2.220446e-16
 .Machine$double.xmin # 2.225074e-308
