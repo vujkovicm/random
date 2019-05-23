@@ -1,8 +1,8 @@
 args = commandArgs(trailingOnly = TRUE)
 
 # continous to ordinal
-ordinize = function(x, ncat) {
-  cut(x, breaks = c(quantile(x, probs = seq(0, 1, 1/ncat))), labels = seq(1:ncat))
+ordinize = function(x, n.cat) {
+  cut(x, breaks = c(quantile(x, probs = seq(0, 1, 1/n.cat))), labels = seq(1:n.cat))
 }
 
 # stating the obvious
