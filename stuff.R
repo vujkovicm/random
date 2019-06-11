@@ -86,3 +86,9 @@ dt[ , list( patient = unlist(strsplit(ids, ";" ))) , by = gene]
 # 5: BETA     202
 # collapse the genes 
 paste(unlist(df[which(df$patient %in% random.list), "gene"]), collapse = ";")
+
+# catch error if file to be imported is emtpy
+df = try(read.table("filename.txt", T), silent = T) 
+if (inherits(df, 'try-error')){  
+  # what to do if file empty 
+} 
