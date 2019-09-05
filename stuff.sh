@@ -105,6 +105,14 @@ to=$((3000000*($i+1)))
 # get left unique (ref check)
 grep -Fxv -f mvp.x.snps g1k.snps > mvp.x.uniq
 
+# if-else statement
+if [ $POP == "TRANS" ]
+then
+        REF="EUR"
+else
+        REF=$POP
+fi
+
 # impute2 to plink
 plink2 --gen filename.gz --make-pgen --sort-vars --out filename --allow-extra-chr --sample pheno.sample
 sed -i "s/---/19/g" filename.pvar
