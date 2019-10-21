@@ -2,6 +2,9 @@
 bkill `bjobs -p -o jobid | grep -v ^JOBID | tr '\n' ' '`
 bjobs -w | grep 'PEND' | awk '{print $1}' | xargs bkill
 
+# quick grep based on list
+grep -w -E 'first|second|last' textfile.txt > subset.txt
+
 # run shell script without killing it due to inactive time (genisis stuff)
 # keep running on the background
 # save output every 60 seconds to nohup.out
