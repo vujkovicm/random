@@ -1,5 +1,5 @@
 # download data from BOX folder
-lftp -p 990 -e "open username@upenn.edu@ftp.box.com; mirror -R /path/to/folder box_name; exit"
+lftp -p 990 -e "open username@upenn.edu@ftp.box.com; mirror -R /local/path/to/folder box_name; exit"
 
 # selectively kill jobs
 bkill `bjobs -p -o jobid | grep -v ^JOBID | tr '\n' ' '`
