@@ -43,4 +43,4 @@ result> {"access_token":"BlahBlahasdkfjalkwejrijBlahBlahBlah",,"token_type":"bea
 
 # test if works (in PMACS-HPC)
 
-rclone ls myPennbox:MyPennBoxFolder/subfolder
+rclone ls myPennbox:mainfolder/subfolder
