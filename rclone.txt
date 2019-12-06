@@ -1,10 +1,11 @@
-# 1. On the HPC, launch an interactive job:
+# On HPC (PMACS), launch an interactive job
+
 bsub -Is bash
 
-# 2. Setup a new rclone remote :
+# Setup a new rclone remote
+
 rclone config
-# make new rclone
-n
+e/n/d/r/c/s/q> n
 name> myPennbox
 Storage> box
 client_id>
@@ -15,8 +16,6 @@ Remote config
 Use auto config?
  * Say Y if not sure
  * Say N if you are working on a remote or headless machine
-y) Yes
-n) No
 y/n> n
 For this to work, you will need rclone available on a machine that has a web browser available.
 Execute the following on your machine:
@@ -24,10 +23,10 @@ Execute the following on your machine:
 Then paste the result below:
 result >
 
-# IMPORTANT: leave the terminal open
-# Now, on your Windows desktop (after you installed rclone on your desktop):
+# Leave the terminal open in PMACS-HPC
+# Install rclone on Windows desktop and open the command prompt
 # Windows (key) + R (type in cmd)
-# in command prompt go to directory where rcline is installed
+# in cmd, go to directory where rclone is installed, then type
 
 rclone.exe authorize "box"
 
@@ -38,9 +37,10 @@ rclone.exe authorize "box"
 
 {"access_token":"BlahBlahasdkfjalkwejrijBlahBlahBlah",,"token_type":"bearer","refresh_token":"MoreBlahBlahBlah","expiry":"2019-12-06T07:01:07.7459684311-05:00"}
 
-# Copy the entire string including curly braces and paste it within your terminal on the HPC (step 2. above)
+# Copy the entire string including curly braces and paste it within your terminal on the HPC
+
 result> {"access_token":"BlahBlahasdkfjalkwejrijBlahBlahBlah",,"token_type":"bearer","refresh_token":"MoreBlahBlahBlah","expiry":"2019-12-06T07:01:07.7459684311-05:00"}
 
-# test if works
-rclone ls myPennbox:MyPennBoxFolder/subfolder
+# test if works (in PMACS-HPC)
 
+rclone ls myPennbox:MyPennBoxFolder/subfolder
