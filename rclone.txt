@@ -1,0 +1,46 @@
+# 1. On the HPC, launch an interactive job:
+bsub -Is bash
+
+# 2. Setup a new rclone remote :
+rclone config
+# make new rclone
+n
+name> myPennbox
+Storage> box
+client_id>
+client_secret>
+Edit advanced config? (y/n) 
+y/n> n
+Remote config
+Use auto config?
+ * Say Y if not sure
+ * Say N if you are working on a remote or headless machine
+y) Yes
+n) No
+y/n> n
+For this to work, you will need rclone available on a machine that has a web browser available.
+Execute the following on your machine:
+        rclone authorize "box"
+Then paste the result below:
+result >
+
+# IMPORTANT: leave the terminal open
+# Now, on your Windows desktop (after you installed rclone on your desktop):
+# Windows (key) + R (type in cmd)
+# in command prompt go to directory where rcline is installed
+
+rclone.exe authorize "box"
+
+# The above should open up a browser on your desktop and when prompted, use the username/password you have, 
+# login and then click "Grant access".
+# for a Penn Box use the SSO login window (to login via the penn website)
+# This should print a very long json string in your Windows command prompt. Something that looks like:
+
+{"access_token":"BlahBlahasdkfjalkwejrijBlahBlahBlah",,"token_type":"bearer","refresh_token":"MoreBlahBlahBlah","expiry":"2019-12-06T07:01:07.7459684311-05:00"}
+
+# Copy the entire string including curly braces and paste it within your terminal on the HPC (step 2. above)
+result> {"access_token":"BlahBlahasdkfjalkwejrijBlahBlahBlah",,"token_type":"bearer","refresh_token":"MoreBlahBlahBlah","expiry":"2019-12-06T07:01:07.7459684311-05:00"}
+
+# test if works
+rclone ls myPennbox:MyPennBoxFolder/subfolder
+
