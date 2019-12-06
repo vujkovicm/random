@@ -45,3 +45,9 @@ result> {"access_token":"BlahBlahasdkfjalkwejrijBlahBlahBlah",,"token_type":"bea
 # test if works (in HPC)
 
 rclone ls myPennbox:mainfolder/subfolder
+
+# copy data from the Box to HPC
+rclone copy myPennbox:from/folder /project/lab/to/folder/
+
+# copy data from HPC to the BOX
+rclone copy /project/lab/from/folder/ myPennbox:to/folder 
