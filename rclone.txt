@@ -1,4 +1,5 @@
-# On HPC (PMACS), launch an interactive job
+# setup up box authorization on a cluster that does not have an internet window
+# On the high-perfromance cluster (HPC), launch an interactive job
 
 bsub -Is bash
 
@@ -23,7 +24,7 @@ Execute the following on your machine:
 Then paste the result below:
 result >
 
-# Leave the terminal open in PMACS-HPC
+# Leave the terminal open in HPC
 # Install rclone on Windows desktop and open the command prompt
 # Windows (key) + R (type in cmd)
 # in cmd, go to directory where rclone is installed, then type
@@ -41,6 +42,6 @@ rclone.exe authorize "box"
 
 result> {"access_token":"BlahBlahasdkfjalkwejrijBlahBlahBlah",,"token_type":"bearer","refresh_token":"MoreBlahBlahBlah","expiry":"2019-12-06T07:01:07.7459684311-05:00"}
 
-# test if works (in PMACS-HPC)
+# test if works (in HPC)
 
 rclone ls myPennbox:mainfolder/subfolder
