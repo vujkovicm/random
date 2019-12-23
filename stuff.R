@@ -51,7 +51,10 @@ df$Xadj = df$X / LAMBDA
 library('e1071')
 myMatch   = matchControls(DISEASE ~ AGE + SEX + PCA1 + PCA2 + PCA3, caselabel = 1, contlabel = 0, data = df, replace = F)
 dfMatched = rbind(df[myMatch$cases, ], df[myMatch$controls, ])
-                   
+
+# get the name of a data.frame as char
+deparse(substitute(df))
+
 # support vector machines and such (in train and test dataset)
 library('caret')
 fitControl = trainControl(method = "repeatedcv", number = 5, repeats = 5)
@@ -108,3 +111,5 @@ test <- getBM(attributes = c('refsnp_id', 'chr_name', 'chrom_start', 'allele'),
               filters = c('snp_filter'), 
               values = list(df$MarkerName), 
               mart = snp_mart)
+
+             
