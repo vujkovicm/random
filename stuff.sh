@@ -1,6 +1,9 @@
 # download data from BOX folder
 lftp -p 990 -e "open username@upenn.edu@ftp.box.com; mirror -R /local/path/to/folder box_name; exit"
 
+# manipulate gzippe file
+gzip -dc infile | awk '{print $0}' > outfile 
+
 # selectively kill jobs
 bkill `bjobs -p -o jobid | grep -v ^JOBID | tr '\n' ' '`
 bjobs -w | grep 'PEND' | awk '{print $1}' | xargs bkill
