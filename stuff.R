@@ -112,4 +112,5 @@ test <- getBM(attributes = c('refsnp_id', 'chr_name', 'chrom_start', 'allele'),
               values = list(df$MarkerName), 
               mart = snp_mart)
 
-             
+# squared variable             
+glm(y ~ x + I(x ^ 2), data = df)
