@@ -29,6 +29,8 @@ result >
 # Windows (key) + R (type in cmd)
 # in cmd, go to directory where rclone is installed, then type
 
+dir C:Temp\rclone
+
 rclone.exe authorize "box"
 
 # The above should open up a browser on your desktop and when prompted, use the username/password you have, 
