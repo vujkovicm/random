@@ -7,7 +7,7 @@ bsub -Is bash
 
 rclone config
 e/n/d/r/c/s/q> n
-name> myPennbox
+name> myPennBox
 Storage> box
 client_id>
 client_secret>
@@ -46,10 +46,10 @@ result> {"access_token":"BlahBlahasdkfjalkwejrijBlahBlahBlah",,"token_type":"bea
 
 # test if works (in HPC)
 
-rclone ls myPennbox:mainfolder/subfolder
+rclone ls myPennBox:mainfolder/subfolder
 
 # copy data from the Box to HPC
-rclone copy myPennbox:from/folder /project/lab/to/folder/
+rclone copy myPennBox:from/folder /project/lab/to/folder/
 
 # copy data from HPC to the BOX
-rclone copy /project/lab/from/folder/ myPennbox:to/folder 
+rclone copy /project/lab/from/folder/ myPennBox:to/folder 
