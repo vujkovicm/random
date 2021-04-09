@@ -8,6 +8,9 @@ gzip -dc infile | awk '{print $0}' > outfile
 bkill `bjobs -p -o jobid | grep -v ^JOBID | tr '\n' ' '`
 bjobs -w | grep 'PEND' | awk '{print $1}' | xargs bkill
 
+# remove all comments, # from file
+grep -o '^[^#]*' file > new.file
+
 # quick grep based on list
 grep -w -E 'first|second|last' textfile.txt > subset.txt
 
