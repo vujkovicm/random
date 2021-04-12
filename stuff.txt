@@ -1,0 +1,12 @@
+Z = mean / sd
+Z / mean = 1 / sd
+mean / z = sd 
+
+se = sd / Vn
+se*Vn = sd
+mean / z = sd 
+mean / z = se*Vn
+(mean / z)/ Vn = se
+
+beta = ln(or) = ln(a*d / c*b)
+se = ln(sqrt(1/a + 1/b + 1/c + 1/b))
