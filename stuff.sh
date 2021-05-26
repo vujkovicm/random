@@ -1,3 +1,14 @@
+# Genisis, where is my SNP?
+count=1
+echo -n "" > pfiles.txt
+while IFS= read -r line;
+do
+ chr="$(cut -d' ' -f2 <<< $line)"
+ pos="$(cut -d' ' -f3 <<< $line)"
+ grep -l :$pos: /data/data1/mvp003/mvp_imputed/Release4_PGEN/chr$chr/*.pvar >> pfiles.txt
+ (( count++ ))
+done < snps.txt
+
 # download data from BOX folder
 lftp -p 990 -e "open username@upenn.edu@ftp.box.com; mirror -R /local/path/to/folder box_name; exit"
 
