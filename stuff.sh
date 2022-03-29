@@ -9,6 +9,9 @@ do
  (( count++ ))
 done < snps.txt
 
+# prevent pmacs from doing segmentation fault (core dump) when downloading files from aws
+ulimit -s unlimited
+
 # download data from BOX folder
 lftp -p 990 -e "open username@upenn.edu@ftp.box.com; mirror -R /local/path/to/folder box_name; exit"
 
