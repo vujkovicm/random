@@ -114,3 +114,9 @@ test <- getBM(attributes = c('refsnp_id', 'chr_name', 'chrom_start', 'allele'),
 
 # squared variable             
 glm(y ~ x + I(x ^ 2), data = df)
+
+                   
+df$beta<-log(df$OR)
+df$se<-abs(df$beta/sqrt(df$STAT))
+df$lower<-df$beta-1.96*df$se
+df$upper<-df$beta+1.96*df$se
