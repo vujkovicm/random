@@ -113,6 +113,9 @@ sed -i '1s/.*/NEW HEADER COLS/g' file.txt
 # insert new header
 sed -i '1 i\HEADER COLS TXT' file.txt
 
+#replace first occurence
+sed -i '0,/old_text/{s/old_text/new_text/}' file.txt
+
 # replace new line with comma
 paste -sd, file.in > file.out
 
