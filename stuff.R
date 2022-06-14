@@ -33,7 +33,7 @@ df$BP = gsub(pattern = "*.(-)", replacement = "", x = df$CHRCBP)
 df$CHR = gsub(pattern = "(:).*", replacement = "", x = df$CHRCBP)
 
 # alternatively
-tmp = as.data.frame(do.call(rbind, strsplit(df$variant, '\\:')))
+tmp = as.data.frame(do.call(rbind, strsplit(df$variant, '\\:')), stringsAsFactors = F)
 colnames(tmp) = c("chr", "pos", "ref", "alt")
 df = cbind(df, tmp)
 
