@@ -125,4 +125,5 @@ df$upper<-df$beta+1.96*df$se
 # 1 calculate the test statistic for a normal distribution test, z, from P3: z = −0.862 + √[0.743 − 2.404×log(P)]
 # 2 calculate the standard error: SE = Est/z (ignoring minus signs)
 # 3 calculate the 95% CI: Est –1.96×SE to Est + 1.96×SE
-                  
+df$Z = -0.862 + sqrt(0.743 - 2.404*log(df$P))
+df$SE = abs(df$Beta/df$Z)
