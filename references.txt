@@ -1,0 +1,5 @@
+dbSNP rs-ids
+https://ftp.ensembl.org/pub/release-105/variation/vcf/homo_sapiens/homo_sapiens-chr1.vcf.gz
+
+1000 genomes files in plink format
+https://www.cog-genomics.org/plink/2.0/resources#phase3_1kg
