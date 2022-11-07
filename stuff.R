@@ -125,6 +125,9 @@ df$se<-abs(df$beta/sqrt(df$STAT))
 df$lower<-df$beta-1.96*df$se
 df$upper<-df$beta+1.96*df$se
 
+# from p-value to se                 
+df$SE   = abs(df$beta) / abs(qnorm(1 - df$p/2))
+         
 # from p-value to CI
 # 1 calculate the test statistic for a normal distribution test, z, from P3: z = −0.862 + √[0.743 − 2.404×log(P)]
 # 2 calculate the standard error: SE = Est/z (ignoring minus signs)
