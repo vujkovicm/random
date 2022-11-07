@@ -1,5 +1,9 @@
 args = commandArgs(trailingOnly = TRUE)
 
+# merge two rows into one based on common identifiers, seperated by :
+library(plyr)
+coding = ddply(df, .(id), summarize, new_var = paste(old_var, collapse=";"))
+
 # continous to ordinal
 ordinize = function(x, n.cat) {
   cut(x, breaks = c(quantile(x, probs = seq(0, 1, 1/n.cat))), labels = seq(1:n.cat))
