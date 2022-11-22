@@ -1,0 +1,11 @@
+Install the AWS CLI Without Sudo (Linux, OS X, or Unix)
+
+Amazon: [Installing the AWS Command Line Tool](http://docs.aws.amazon.com/cli/latest/userguide/installing.html#install-bundle-other-os)
+
+If you don't have sudo permissions or want to install the AWS CLI only for the current user, you can use a modified version of the above commands:
+
+$ curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+$ unzip awscli-bundle.zip
+$ ./awscli-bundle/install -b ~/bin/aws
+
+
