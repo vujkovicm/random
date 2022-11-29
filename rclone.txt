@@ -31,7 +31,15 @@ result >
 
 dir C:Temp\rclone
 
+or on mac
+
+/Users/marijanavujkovic/rclone
+
 rclone.exe authorize "box"
+
+or
+
+./rclone authorize "box"
 
 # The above should open up a browser on your desktop and when prompted, use the username/password you have, 
 # login and then click "Grant access".
