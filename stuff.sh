@@ -9,6 +9,9 @@ do
  (( count++ ))
 done < snps.txt
 
+# skip headers in VCF file
+awk '!/^##/' file.vcf > file.txt
+
 # prevent pmacs from doing segmentation fault (core dump) when downloading files from aws
 ulimit -s unlimited
 
