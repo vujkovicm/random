@@ -1,3 +1,8 @@
+# change ownership
+chown myusername:mvp003 folder/file
+chmod 664 folder/file
+chgrp -R mvp003 /folder/file && chmod -R g+rw /folder/file 
+
 # Genisis, where is my SNP?
 count=1
 echo -n "" > pfiles.txt
