@@ -17,3 +17,10 @@ Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortra
 Thread model: posix
 gcc version 8.3.1 20190311 (Red Hat 8.3.1-3) (GCC)
 
+#error message
+install.packages("arrow")
+libgcc_s.so.1 must be installed for pthread_cancel to work
+
+# recommendation from developers.
+Sys.setenv("ARROW_R_DEV" = TRUE)
+
