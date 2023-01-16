@@ -1,3 +1,5 @@
+conda config --set channel_priority false
+
 bsub -Is bash
 module load gcc 
 gcc (>= 7.0.0) is sufficient in order to support C++17
