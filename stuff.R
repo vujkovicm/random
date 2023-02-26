@@ -134,3 +134,7 @@ df$SE   = abs(df$beta) / abs(qnorm(1 - df$p/2))
 # 3 calculate the 95% CI: Est –1.96×SE to Est + 1.96×SE
 df$Z = -0.862 + sqrt(0.743 - 2.404*log(df$P))
 df$SE = abs(df$Beta/df$Z)
+                   
+# or with t-distribution
+df$Tstat <- qt(df$P/2, df = 96) # Calculating the t-value using quantile function
+df$SE = df$Beta/abs(df$Tstat) # Calculating standard error
