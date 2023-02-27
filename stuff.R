@@ -138,3 +138,6 @@ df$SE = abs(df$Beta/df$Z)
 # or with t-distribution, geeft zelfde resultaat als qnorm.
 df$Tstat <- qt(df$P/2, df = df$N) # Calculating the t-value using quantile function
 df$SE = abs(df$Beta)/abs(df$Tstat) # Calculating standard error
+                   
+# SE in EXCEL =ABS(BETA) / ABS(NORMSINV(1 - P/2))
+# SE in EXEL = ABS(BETA) / T.INV.2T(P, N)
