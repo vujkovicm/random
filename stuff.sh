@@ -174,3 +174,6 @@ plink2 --bfile filename --extract ../extract.snp --recode A --out subset
 # EXPORT VCF AS HARDCALLS in PLINK2
 plink2 --vcf filename.vcf.gz dosage=DS --hard-call-threshold 0.499999 --extract common.snps --export vcf vcf-dosage=DS --out filename.common
 
+#
+~/software/google-cloud-sdk/bin/gsutil -u billing-project cp gs://gtex-resources/GTEx_Analysis_v8_QTLs/GTEx_Analysis_v8_EUR_eQTL_all_associations
+~/software/google-cloud-sdk/bin/gsutil -u billing-project cp gs://gtex-resources/GTEx_Analysis_v8_QTLs/GTEx_Analysis_v8_EUR_eQTL_all_associations/${tissue}.v8.EUR.allpairs.chr${chr}.
