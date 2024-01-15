@@ -1,0 +1,13 @@
+# install miniconda version 3.10
+# install snakemake version 7.19
+
+bsub -Is bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.11.0-2-Linux-x86_64.sh
+bash Miniconda3-py310_23.11.0-2-Linux-x86_64.sh
+#(reboot)
+conda install conda-forge::mamba
+mamba init
+#(reboot)
+mamba install conda-forge::r-base
+mamba install conda-forge::r-biocmanager
+mamba install bioconda::snakemake=7.19
