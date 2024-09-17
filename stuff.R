@@ -1,5 +1,11 @@
 args = commandArgs(trailingOnly = TRUE)
 
+# p to z
+z = qnorm(1 - p/2)
+# z = -0.862 + SQRT(0.743 - 2.404*log(p))
+beta = z / (sqrt(2*eaf*(1-eaf)*(n+z*z))
+se   = 1 / (sqrt(2*eaf*(1-eaf)*(n+z*z))           
+
 # merge two rows into one based on common identifiers, seperated by :
 library(plyr)
 coding = ddply(df, .(id), summarize, new_var = paste(old_var, collapse=";"))
