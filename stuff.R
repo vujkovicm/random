@@ -1,5 +1,8 @@
 args = commandArgs(trailingOnly = TRUE)
 
+# power ingenetic studies, including interaction
+https://cran.r-project.org/web/packages/genpwr/vignettes/vignette.html
+
 # p to z
 z = qnorm(1 - p/2)
 # z = -0.862 + SQRT(0.743 - 2.404*log(p))
